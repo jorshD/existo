@@ -53,8 +53,8 @@ function superShape(theta){
 }
 
 function draw() {
-//  saveFrames('out', 'png', 1, 125 );
-setTimeout(makeWalker, 300000);
+//saveFrames('out', 'png', 1, 125 );
+setTimeout(makeWalker, 3000);
 
 }
 
@@ -110,5 +110,5 @@ function makeWalker(){
 }
 
 function mousePressed(){
-//  saveCanvas('RW01', 'png');
+  saveCanvas('RW01', 'png');
 }
