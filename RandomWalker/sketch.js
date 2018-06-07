@@ -17,7 +17,7 @@ let sliderN;
 function setup() {
   createCanvas(1920, 1210);
   //background(220);
-  sliderN = createSlider(0,6,2,0.1);
+  //sliderN = createSlider(0,6,2,0.1);
   pos = createVector(1920/2, 1210/2);
   prev = pos.copy();
   setTimeout(draw,30000);
