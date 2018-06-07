@@ -110,5 +110,5 @@ function makeWalker(){
 }
 
 function mousePressed(){
-  saveCanvas('RW01', 'png');
+  //saveCanvas('RW01', 'png');
 }
