@@ -15,7 +15,7 @@ let cicle = 1;
 let sliderN;
 
 function setup() {
-  createCanvas(1920, 1210);
+  createCanvas(windowWidth,windowHeight);
   //background(220);
   //sliderN = createSlider(0,6,2,0.1);
   pos = createVector(1920/2, 1210/2);
