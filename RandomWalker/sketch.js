@@ -18,7 +18,7 @@ function setup() {
   createCanvas(windowWidth,windowHeight);
   //background(220);
   //sliderN = createSlider(0,6,2,0.1);
-  pos = createVector(1920/2, 1210/2);
+  pos = createVector(random(width), random(height));
   prev = pos.copy();
   setTimeout(draw,30000);
 
