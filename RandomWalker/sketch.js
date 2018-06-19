@@ -190,7 +190,7 @@ function mousePressed(){
 
 function reset(){
 
-  setTimeout(reset, 1800000);
+  setTimeout(reset, 540000);
   if (!primero) {
     savePicture();
   }
