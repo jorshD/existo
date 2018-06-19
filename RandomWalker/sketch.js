@@ -80,15 +80,24 @@ function draw() {
 
 function makeWalker(){
   // n1 = map(noise(h),0.1, 1,0,13);
-  n1 = map(noise(h),0, 1,0,random(10,100));
+
   let mpos = random(100);
+  if (mpos > 90) {
+    n1 = map(noise(h),0, 1,0,random(10,100));
+  }else {
+    n1 = map(noise(h),0, 1,0,random(10,18));
+  }
   if (mpos < 15) {
     m = map(noise(h),0, 1,0,random(1000));
   }else {
-      m = map(noise(h),0, 1,0,random(100));
+      m = map(noise(h),0, 1,0,random(18));
+  }
+  if (mpos < 20) {
+      b = map(noise(h),0, 1,0,random(10));
+  }else {
+      b = map(noise(h),0, 1,0,random(100));
   }
 
-  b = map(noise(h),0, 1,0,random(100));
   let rp = random(100);
   let radius;
   if (rp < 20) {
