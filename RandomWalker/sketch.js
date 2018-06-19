@@ -17,6 +17,9 @@ let sliderN;
 let xoff1;
 let xoff2;
 
+let primero = true;
+let cont = 0;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   reset();
@@ -71,6 +74,7 @@ function superShape(theta){
 function draw() {
 //  saveFrames('out', 'png', 1, 125 );
  setTimeout(makeWalker, 30);
+// setTimeout(savePicture, 10000);
 
 }
 
@@ -168,6 +172,11 @@ function mousePressed(){
 
 function reset(){
 
+  setTimeout(reset, 1800000);
+  if (!primero) {
+    savePicture();
+  }
+  primero = false;
   let bg = floor(random(100));
   if (bg < 50) {
     background(255);
@@ -186,5 +195,7 @@ function reset(){
 }
 
 function savePicture(){
-  saveCanvas('simbiosis', 'png');
+
+  saveCanvas('simbiosis'+"_"+[cont], 'png');
+  cont++;
 }
