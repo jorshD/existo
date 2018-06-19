@@ -112,7 +112,7 @@ function makeWalker(){
     stroke(h, random(1,120));
   }else {
     let fillop= random(100);
-    if (fillop < 25) {
+    if (fillop < 10) {
       fill(map(noise(h),0,1,0,255), map(noise(h),0,1,0,255));
       strokeWeight(random(35));
       stroke(h, random(1,220));
