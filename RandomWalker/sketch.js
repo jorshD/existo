@@ -5,22 +5,30 @@ let h = 0;
 
 
 let n1;
-let n2 = 0.9;
-let n3 = 2;
+let n2;
+let n3;
 let m;
-let a = 0.4;
+let a;
 let b;
 let cicle = 1;
 
 let sliderN;
 
+let xoff1;
+let xoff2;
+
 function setup() {
-  createCanvas(windowWidth,windowHeight);
-  //background(220);
-  //sliderN = createSlider(0,6,2,0.1);
-  pos = createVector(random(width), random(height));
-  prev = pos.copy();
-  setTimeout(draw,30000);
+  createCanvas(windowWidth, windowHeight);
+  reset();
+  // //background(220);
+  // n2 = random(50);
+  // sliderN = createSlider(0,6,2,0.1);
+  // pos = createVector(random(width), random(height));
+  // prev = pos.copy();
+  //  // a = random(2);
+  //  xoff1 = 0;
+  //  xoff2 = random(10000);
+  // // setTimeout(draw,30000);
 
 }
 
@@ -35,6 +43,14 @@ if (val > 0) {
 }
 
 function superShape(theta){
+  // print(xoff1);
+  a = noise(xoff1);
+  // a = noise(xoff1);
+  xoff1 += 0.00000000001;
+  xoff2 += 0.00000000001;
+  if (xoff1 > 1) {
+    xoff1 = 0;
+  }
   let part1 = (1 / a) * cos(theta * m / 4);
   part1 = abs(part1);
   part1 = pow(part1, n2);
@@ -53,21 +69,27 @@ function superShape(theta){
 }
 
 function draw() {
-//saveFrames('out', 'png', 1, 125 );
-setTimeout(makeWalker, 3000);
+//  saveFrames('out', 'png', 1, 125 );
+ setTimeout(makeWalker, 30);
 
 }
 
 function makeWalker(){
-  n1 = floor(random(1,6));
-  m = 3;
-  b = floor(random(1,3));
+  n1 = map(noise(h),0.1, 1,0,13);
+  m = map(noise(h),0, 1,0,17);
+  b = map(noise(h),0, 1,0,13);
 
   let radius = random(3, 35);
   let total = 200;
   let inc = TWO_PI / total;
 
-  fill(random(h), random(1, 120));
+  let colProb = 100;
+  if (colProb < 50) {
+    fill(random(10,20),random(10,20),map(noise(h),0,1,0,255), map(noise(h),0,1,0,255));
+  }else {
+      fill(map(noise(h),0,1,0,255), map(noise(h),0,1,0,255));
+  }
+
   strokeWeight(random(5));
   stroke(h, random(1,120));
 
@@ -85,9 +107,19 @@ function makeWalker(){
   endShape(CLOSE);
   pop();
 
-  h += 0.1;
+  h += random(1)/ random(1000);
   if (h > 255) {
-    h = 0;
+    h = random(1)/ random(1000);
+  }
+
+  n1 += random(1)/ random(1000);
+  if (n1 > 13) {
+    n1 = random(1)/ random(1000);
+  }
+
+    m += random(1)/ random(1000);
+    if (m > 17) {
+    m = random(1)/ random(1000);
   }
 
   prev.set(pos);
@@ -110,5 +142,24 @@ function makeWalker(){
 }
 
 function mousePressed(){
-  //saveCanvas('RW01', 'png');
+  reset();
+}
+
+function reset(){
+  // saveCanvas('RW01', 'png');
+  let bg = floor(random(100));
+  if (bg < 50) {
+    background(255);
+  }else {
+    background(0);
+  }
+
+  n2 = random(50);
+  n3 = random(3);
+  // sliderN = createSlider(0,6,2,0.1);
+  pos = createVector(random(width), random(height));
+  prev = pos.copy();
+   // a = random(2);
+   xoff1 = random(1);
+   xoff2 = random(10000);
 }
