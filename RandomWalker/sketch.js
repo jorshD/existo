@@ -75,27 +75,39 @@ function draw() {
 }
 
 function makeWalker(){
-  n1 = map(noise(h),0.1, 1,0,13);
-  m = map(noise(h),0, 1,0,17);
-  b = map(noise(h),0, 1,0,13);
+  // n1 = map(noise(h),0.1, 1,0,13);
+  n1 = map(noise(h),0, 1,0,random(10,100));
+  let mpos = random(100);
+  if (mpos < 15) {
+    m = map(noise(h),0, 1,0,random(1000));
+  }else {
+      m = map(noise(h),0, 1,0,random(100));
+  }
+
+  b = map(noise(h),0, 1,0,random(100));
   let rp = random(100);
   let radius;
   if (rp < 20) {
       radius = map(noise(h),0, 1,5,40);
   }else {
-      radius = map(noise(h),0, 1,5,1);
+      radius = map(noise(h),0, 1,0,5);
   }
 
   let total = map(noise(h),0, 1,10,200);
   let inc = TWO_PI / total;
 
   let colProb = random(100);
-  if (colProb < 1) {
-    fill(map(noise(h),0,1,0,255), random(10,20),random(10,20),map(noise(h),0,1,0,255));
+  if (colProb < 2) {
+    fill(map(noise(h),0,1,0,255), random(20,40),random(10,20),map(noise(h),0,1,0,255));
     strokeWeight(random(35));
     stroke(h, random(1,120));
 
+  }else if (colProb > 99) {
+    fill(random(140,150),map(noise(h),0,1,0,255),random(5),map(noise(h),0,1,0,255));
+    strokeWeight(random(35));
+    stroke(h, random(1,120));
   }else {
+      fill(map(noise(h),0,1,0,255), map(noise(h),0,1,0,255));
       fill(map(noise(h),0,1,0,255), map(noise(h),0,1,0,255));
       strokeWeight(random(35));
       stroke(h, random(1,120));
@@ -155,7 +167,7 @@ function mousePressed(){
 }
 
 function reset(){
-  // saveCanvas('RW01', 'png');
+
   let bg = floor(random(100));
   if (bg < 50) {
     background(255);
@@ -171,4 +183,8 @@ function reset(){
    // a = random(2);
    xoff1 = random(1);
    xoff2 = random(10000);
+}
+
+function savePicture(){
+  saveCanvas('simbiosis', 'png');
 }
