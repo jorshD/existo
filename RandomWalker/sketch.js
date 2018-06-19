@@ -100,10 +100,12 @@ function makeWalker(){
 
   let rp = random(100);
   let radius;
-  if (rp < 20) {
-      radius = map(noise(h),0, 1,5,40);
+  if (rp < 2) {
+      // radius = map(noise(h),0, 1, 5,40);
+      radius = random(60);
   }else {
-      radius = map(noise(h),0, 1,0,5);
+      // radius = map(noise(h),0, 1, 0,5);
+        radius = floor(random(20));
   }
 
   let total = map(noise(h),0, 1,10,200);
@@ -172,7 +174,7 @@ function makeWalker(){
 
   let mul = random(100);
   if (mul < 2) {
-    step.mult(random(300, 460));
+    step.mult(random(300, 800));
 
   }else {
       step.setMag(random(60));
@@ -190,7 +192,7 @@ function mousePressed(){
 
 function reset(){
 
-  setTimeout(reset, 540000);
+  setTimeout(reset, 1800000);
   if (!primero) {
     savePicture();
   }
