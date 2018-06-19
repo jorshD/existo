@@ -85,15 +85,15 @@ function makeWalker(){
   if (mpos > 90) {
     n1 = map(noise(h),0, 1,0,random(10,100));
   }else {
-    n1 = map(noise(h),0, 1,0,random(10,18));
+    n1 = map(noise(h),0, 1,0,random(10,4));
   }
   if (mpos < 15) {
     m = map(noise(h),0, 1,0,random(1000));
   }else {
-      m = map(noise(h),0, 1,0,random(18));
+      m = map(noise(h),0, 1,0,random(8));
   }
   if (mpos < 20) {
-      b = map(noise(h),0, 1,0,random(10));
+      b = map(noise(h),0, 1,0,random(5));
   }else {
       b = map(noise(h),0, 1,0,random(100));
   }
@@ -110,18 +110,18 @@ function makeWalker(){
   let inc = TWO_PI / total;
 
   let colProb = random(100);
-  if (colProb < 2) {
+  if (colProb < 1) {
     fill(map(noise(h),0,1,0,255), random(20,40),random(10,20),map(noise(h),0,1,0,255));
     strokeWeight(random(35));
     stroke(h, random(1,120));
 
-  }else if (colProb > 99.5) {
+  }else if (colProb > 99.9) {
     fill(random(140,150),map(noise(h),0,1,0,255),random(5),map(noise(h),0,1,0,255));
     strokeWeight(random(35));
     stroke(h, random(1,120));
   }else {
     let fillop= random(100);
-    if (fillop < 10) {
+    if (fillop < 3) {
       fill(map(noise(h),0,1,0,255), map(noise(h),0,1,0,255));
       strokeWeight(random(35));
       stroke(h, random(1,220));
@@ -190,7 +190,7 @@ function mousePressed(){
 
 function reset(){
 
-  setTimeout(reset, 1800000);
+  setTimeout(reset, 540000);
   if (!primero) {
     savePicture();
   }
