@@ -192,13 +192,13 @@ function mousePressed(){
 
 function reset(){
 
-  setTimeout(reset, 1800000);
+  setTimeout(reset, 900000);
   if (!primero) {
     savePicture();
   }
   primero = false;
   let bg = floor(random(100));
-  if (bg < 50) {
+  if (bg < 30) {
     background(255);
   }else {
     background(0);
