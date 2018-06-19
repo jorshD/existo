@@ -106,21 +106,24 @@ function makeWalker(){
     strokeWeight(random(35));
     stroke(h, random(1,120));
 
-  }else if (colProb > 99) {
+  }else if (colProb > 99.5) {
     fill(random(140,150),map(noise(h),0,1,0,255),random(5),map(noise(h),0,1,0,255));
     strokeWeight(random(35));
     stroke(h, random(1,120));
   }else {
     let fillop= random(100);
-    if (fillop < 40) {
+    if (fillop < 25) {
       fill(map(noise(h),0,1,0,255), map(noise(h),0,1,0,255));
+      strokeWeight(random(35));
+      stroke(h, random(1,220));
     }else {
         fill(random(255), random(255));
+        strokeWeight(random(15));
+        stroke(h, random(1,120));
     }
 
 
-      strokeWeight(random(35));
-      stroke(h, random(1,120));
+
   }
 
 
