@@ -192,7 +192,7 @@ function mousePressed(){
 
 function reset(){
 
-  setTimeout(reset, 900000);
+  setTimeout(reset, random(300000, 600000));
   if (!primero) {
     savePicture();
   }
