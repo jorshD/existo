@@ -194,7 +194,7 @@ function reset(){
 
   setTimeout(reset, random(300000, 180000));
   if (!primero) {
-//     savePicture();
+    savePicture();
   }
   primero = false;
   let bg = floor(random(100));
